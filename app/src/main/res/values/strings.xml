@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ColorMatch</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="Match">Match</string>
+    <string name="Score">Points:</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="newWord">New</string>
+    <string name="waiting">Waiting</string>
+</resources>
