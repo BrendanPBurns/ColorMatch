@@ -58,7 +58,7 @@ public class DrawView  extends View
     {
         super.onDraw(canvas);
 
-        int workingSpaceHeight = getMeasuredHeight() - 120;
+        int workingSpaceHeight = getMeasuredHeight() - 185;
 
         paint.setColor(top);
         canvas.drawRect(30, 30, getMeasuredWidth() - 30, workingSpaceHeight / 2 - 15, paint);

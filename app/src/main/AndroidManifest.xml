@@ -11,21 +11,25 @@
             android:name=".ColorMatch"
             android:label="@string/app_name" >
             <intent-filter>
+                <action android:name="android.intent.action.PICK" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainMenu"
+            android:label="Color Sync" >
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <receiver android:name=".ColorBox" >
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/color_box_info" />
-        </receiver>
+        <activity
+            android:name=".ProfileScreen"
+            android:label="@string/title_activity_profile_screen" >
+        </activity>
     </application>
 
 </manifest>

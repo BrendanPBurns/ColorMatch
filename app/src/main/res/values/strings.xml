@@ -9,4 +9,13 @@
     <string name="add_widget">Add widget</string>
     <string name="newWord">New</string>
     <string name="waiting">Waiting</string>
+    <string name="title_activity_main_menu">MainMenu</string>
+    <string name="ColorSync">Color Sync</string>
+    <string name="start">Start</string>
+    <string name="profile">Profile</string>
+    <string name="title_activity_profile_screen">ProfileScreen</string>
+    <string name="name">Name:</string>
+    <string name="addPro">Add</string>
+    <string name="removePro">Remove</string>
+    <string name="Select">Select</string>
 </resources>

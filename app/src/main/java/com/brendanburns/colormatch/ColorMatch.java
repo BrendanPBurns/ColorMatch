@@ -4,15 +4,19 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 
+import java.io.IOException;
+
 
 public class ColorMatch extends ActionBarActivity {
 
-
+    ProfileList playerInfo;
+    boolean tried;
     TextView scorePrint;
     SeekBar selectBar;
     DrawView drawView;
@@ -21,12 +25,16 @@ public class ColorMatch extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_match);
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_color_match, menu);
+
+
+        tried = false;
 
         //Set up the two color boxes.
         drawView = (DrawView) findViewById(R.id.view);
@@ -66,7 +74,9 @@ public class ColorMatch extends ActionBarActivity {
         {
             public void onClick(View v)
             {
-                scorePrint.setText("Score: " + drawView.computerScore() + "% difference!");
+                double score = drawView.computerScore();
+                scorePrint.setText("Score: " + score + "% difference!");
+                playerInfo.addScore(score);
             }
         });
 
@@ -75,9 +85,18 @@ public class ColorMatch extends ActionBarActivity {
             public void onClick(View v)
             {
                 drawView.randomizeTop();
+                tried = false;
             }
         });
+        playerInfo = new ProfileList(this);
+        try
+        {
+            playerInfo.updateProfiles();
+        }
+        catch(IOException e)
+        {
 
+        }
         return true;
     }
 

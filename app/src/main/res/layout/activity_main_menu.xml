@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.brendanburns.colormatch.MainMenu">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/ColorSync"
+        android:id="@+id/Title"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="The objective of this game is to try and get the color of the lower box to match that of the upper box as close as possible. \n\n In order to do this, use the slider at the bottom of the screen to change the color of the lower box, then press the match key! Your score will be shown at the bottom of the screen and recorded! \n\n You can try to match the same color again but the score will not be recorded until a new color is randomly selected with the new button. HAVE FUN!"
+        android:id="@+id/MainText"
+        android:layout_below="@+id/Title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start"
+        android:id="@+id/StartGame"
+        android:layout_below="@+id/MainText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/profile"
+        android:id="@+id/startProf"
+        android:layout_alignTop="@+id/StartGame"
+        android:layout_alignRight="@+id/MainText"
+        android:layout_alignEnd="@+id/MainText" />
+
+</RelativeLayout>
