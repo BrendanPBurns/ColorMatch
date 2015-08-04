@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.AssetManager;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,12 +34,19 @@ public class ProfileList
     Context myCon;
     int currentPro;
 
-
-
     public ProfileList(Context c)
     {
         myList = new Profile[10];
         myCon = c;
+    }
+
+    public void fileCheck()
+    {
+        File myFile = myCon.getFileStreamPath(FILENAME);
+        if (!myFile.exists())
+        {
+            writeStartingFile();
+        }
     }
 
     private String readFromFile() throws IOException
@@ -65,9 +73,9 @@ public class ProfileList
         catch (FileNotFoundException e)
         {
             writeStartingFile();
-            updateProfiles();
-            //Log.e(TAG, "File not found: " + e.toString());
-        } catch (IOException e)
+            Log.e(TAG, "File not found: " + e.toString());
+        }
+        catch (IOException e)
         {
             Log.e(TAG, "Can not read file: " + e.toString());
         }
@@ -122,6 +130,7 @@ public class ProfileList
 
     public void writeStartingFile()
     {
+        Log.e(TAG, "Initialization started.");
         numberOfProfiles = 1;
         double[] d = {0,0,0,0,0,0,0,0,0,0};
         myList[0] = new Profile("Defualt", 0, d );
@@ -168,7 +177,7 @@ public class ProfileList
     public void addScore(double score)
     {
         myList[currentPro].addNextScore(score);
-        writeToFile(profilesToString());
+        save();
     }
 
     public void addProfile(String name)
@@ -176,7 +185,7 @@ public class ProfileList
         double[] d = {0,0,0,0,0,0,0,0,0,0};
         myList[numberOfProfiles] = new Profile(name, 0, d);
         numberOfProfiles++;
-        writeToFile(profilesToString());
+        save();
     }
 
     public void removeProfile(int number)

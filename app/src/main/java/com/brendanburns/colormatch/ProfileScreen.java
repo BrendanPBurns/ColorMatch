@@ -101,6 +101,10 @@ public class ProfileScreen extends ActionBarActivity {
                     {
                         list.add(name);
                         playersInfo.addProfile(name);
+                        playersInfo.currentPro = (playersInfo.numberOfProfiles - 1);
+                        players.setSelection(playersInfo.currentPro);
+                        playersInfo.save();
+                        updateScreen();
                     }
                 }
 
@@ -137,6 +141,7 @@ public class ProfileScreen extends ActionBarActivity {
             }
         });
 
+        players.setSelection(playersInfo.currentPro);
         return true;
     }
 

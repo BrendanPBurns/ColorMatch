@@ -13,31 +13,46 @@ import android.widget.*;
 import java.io.IOException;
 
 
-public class ColorMatch extends ActionBarActivity {
-
+public class ColorMatch extends ActionBarActivity
+{
+    private static final String TAG = ProfileList.class.getName();
     ProfileList playerInfo;
     boolean tried;
     TextView scorePrint;
     SeekBar selectBar;
     DrawView drawView;
+    View top;
+    View bottom;
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_match);
 
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_color_match, menu);
 
 
         tried = false;
 
+        top = (View) findViewById(R.id.top);
+        bottom = (View) findViewById(R.id.bottom);
+
         //Set up the two color boxes.
         drawView = (DrawView) findViewById(R.id.view);
+
+        int topLoc[] = new int[2];
+        top.getLocationOnScreen(topLoc);
+        int BottomLoc[] = new int[2];
+        bottom.getLocationOnScreen(BottomLoc);
+        Log.d(TAG, "topY: "+ topLoc[1]+" BottomY:" + BottomLoc[1]);
 
         //Sets up for changing the text for the score menu.
         scorePrint = (TextView) findViewById(R.id.score);
@@ -76,7 +91,11 @@ public class ColorMatch extends ActionBarActivity {
             {
                 double score = drawView.computerScore();
                 scorePrint.setText("Score: " + score + "% difference!");
-                playerInfo.addScore(score);
+                if (!tried)
+                {
+                    playerInfo.addScore(score);
+                    tried = true;
+                }
             }
         });
 

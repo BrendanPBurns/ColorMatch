@@ -25,8 +25,8 @@ public class MainMenu extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-
-
+        playersInfo = new ProfileList(this);
+        playersInfo.fileCheck();
     }
 
     @Override

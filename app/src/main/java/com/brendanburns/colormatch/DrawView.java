@@ -58,13 +58,23 @@ public class DrawView  extends View
     {
         super.onDraw(canvas);
 
-        int workingSpaceHeight = getMeasuredHeight() - 185;
+
+
+        int workingSpaceHeight = getHeight();
+        if (getHeight() > getWidth())
+        {
+            workingSpaceHeight = (int) Math.floor(workingSpaceHeight * 0.70);
+        }
+        else
+        {
+            workingSpaceHeight = (int) Math.floor(workingSpaceHeight * 0.50);
+        }
 
         paint.setColor(top);
-        canvas.drawRect(30, 30, getMeasuredWidth() - 30, workingSpaceHeight / 2 - 15, paint);
+        canvas.drawRect(10, 10, getWidth() - 10, workingSpaceHeight / 2 - 5, paint);
 
         paint.setColor(bot);
-        canvas.drawRect(30, workingSpaceHeight / 2 + 15, getMeasuredWidth() - 30, workingSpaceHeight - 30, paint);
+        canvas.drawRect(10, workingSpaceHeight / 2 + 5, getWidth() - 10, workingSpaceHeight - 10, paint);
     }
 
     //sets the color for the player selected color box by taking in an int that represents a hue (between 0-1529)

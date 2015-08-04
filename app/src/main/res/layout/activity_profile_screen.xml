@@ -10,7 +10,7 @@
     <TextView android:text="@string/name" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/ProfileInfo"
-        android:layout_below="@+id/playerList"
+        android:layout_above="@+id/Select"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
